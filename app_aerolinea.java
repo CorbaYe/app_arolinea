@@ -3,6 +3,7 @@ import java.util.LinkedList;
 import javax.swing.JOptionPane;
 public class app_aerolinea {
     private static LinkedList<cls_registro_pasajeros> pasajeros = new LinkedList<>();
+    private static LinkedList<cls_compra_tiquetes> compra_tiquetes = new LinkedList<>();
     public static void main(String[] args) {
         fnt_menu(true);
     }
@@ -22,11 +23,59 @@ public class app_aerolinea {
             sexo = "Otro";
         }
         int membresia = Integer.valueOf(JOptionPane.showInputDialog(null,"Selecione el tipo de membresia\n\n 1. BRONCE\n2. PLATA \n3.  ORO \n4. PLATINO"));
-        if (membresia != 1 || membresia != 2 || membresia != 3 || membresia != 4) {
+        if (membresia == 1) {
+            membresia = 1;
+        }
+        else if (membresia == 2 ) {
+            membresia = 2;
+        }
+        else if (membresia == 3) {
+            membresia = 3;
+        }
+        else if (membresia == 4) {
+            membresia = 4;
+        }else{
             JOptionPane.showMessageDialog(null, "Membresia no valida, asignando por defecto BRONCE");
             membresia = 1;
         }
         pasajeros.add(new cls_registro_pasajeros(id, nombre, contacto, correo, sexo, membresia));
+        JOptionPane.showMessageDialog(null, "Cliente registrado con éxito");
+
+    }
+
+    private static void fnt_comprar_tiquete(){
+        String id_cliente = "";
+        float descuento_membresia = 0;
+        boolean sw = false;
+        String id = JOptionPane.showInputDialog(null,"Ingrese el ID del cliente");
+        for(int i = 0; i < pasajeros.size(); i++){
+            if (pasajeros.get(i).getId().equals(id)) {
+                descuento_membresia = pasajeros.get(i).getDescuento();
+                sw = true;
+                JOptionPane.showMessageDialog(null, "Persona encontrada");
+                break;
+            }
+        }
+        if (sw) {
+            int tipo_clase = Integer.valueOf(JOptionPane.showInputDialog(null,"Selecione el tipo de clase\n\n1. Economica: $450,000\n2. Turista: $600,000 \n3.  $900,000 "));
+            if (tipo_clase == 1) {
+                tipo_clase = 1;
+            }
+            else if (tipo_clase == 2 ) {
+                tipo_clase = 2;
+            }
+            else if (tipo_clase == 3) {
+                tipo_clase = 3;
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Tipo de clase no valida, asignando por defecto clase ECONOMICA");
+                tipo_clase = 1;
+            }
+            int cantidad = Integer.valueOf(JOptionPane.showInputDialog(null,"Ingrese la cantidad de Tiketes"));
+            int tipo_pago = Integer.valueOf(JOptionPane.showInputDialog(null,"Selecione el tipo de pago\n\n1. Efectivo \n2. Tarjeta de credito \n3. Tarjeta de ahorros \n4. Transferencia"));
+            compra_tiquetes.add(new cls_compra_tiquetes(id_cliente, tipo_clase, cantidad, tipo_pago, descuento_membresia));
+            JOptionPane.showMessageDialog(null, "Compra registrada éxitosamente");
+        }
     }
 
     private static void fnt_menu(boolean menu){
@@ -36,7 +85,10 @@ public class app_aerolinea {
                 fnt_registrar_cliente();
             }
             if (option == 2) {
-                fnt_registrar_cliente();
+                fnt_comprar_tiquete();
+            }
+            if (option == 3) {
+                menu = false;
             }
         }while(menu);
     }
