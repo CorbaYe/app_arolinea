@@ -2,7 +2,7 @@ import java.util.LinkedList;
 
 import javax.swing.JOptionPane;
 public class app_aerolinea {
-    private static LinkedList<registro_pasajeros> pasajeros = new LinkedList<>();
+    private static LinkedList<cls_registro_pasajeros> pasajeros = new LinkedList<>();
     public static void main(String[] args) {
         fnt_menu(true);
     }
@@ -26,13 +26,16 @@ public class app_aerolinea {
             JOptionPane.showMessageDialog(null, "Membresia no valida, asignando por defecto BRONCE");
             membresia = 1;
         }
-        pasajeros.add(new registro_pasajeros(id, nombre, contacto, correo, sexo, membresia));
+        pasajeros.add(new cls_registro_pasajeros(id, nombre, contacto, correo, sexo, membresia));
     }
 
     private static void fnt_menu(boolean menu){
         do{
-            int option = Integer.valueOf(JOptionPane.showInputDialog(null,"==========MENU PRINCIPAL==========\n\n1. Registrar cliente \n2. Salir"));
+            int option = Integer.valueOf(JOptionPane.showInputDialog(null,"==========MENU PRINCIPAL==========\n\n1. Registrar cliente \n2. Comprar tiquetes"));
             if (option == 1) {
+                fnt_registrar_cliente();
+            }
+            if (option == 2) {
                 fnt_registrar_cliente();
             }
         }while(menu);

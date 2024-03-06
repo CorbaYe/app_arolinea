@@ -1,4 +1,4 @@
-public class Membresia {
+public class cls_membresia {
     final private float BRONCE_DESCUENTO = 0.10F;
     final private float PLATA_DESCUENTO = 0.15F;
     final private float ORO_DESCUENTO = 0.25F;
