@@ -52,7 +52,6 @@ public class app_aerolinea {
             if (pasajeros.get(i).getId().equals(id)) {
                 descuento_membresia = pasajeros.get(i).getDescuento();
                 sw = true;
-                JOptionPane.showMessageDialog(null, "Persona encontrada");
                 break;
             }
         }
@@ -80,14 +79,14 @@ public class app_aerolinea {
 
     private static void fnt_menu(boolean menu){
         do{
-            int option = Integer.valueOf(JOptionPane.showInputDialog(null,"==========MENU PRINCIPAL==========\n\n1. Registrar cliente \n2. Comprar tiquetes"));
+            int option = Integer.valueOf(JOptionPane.showInputDialog(null,"==========MENU PRINCIPAL==========\n\n1. Registrar cliente \n2. Comprar tiquetes \n3. Reportes \n4. Salir"));
             if (option == 1) {
                 fnt_registrar_cliente();
             }
             if (option == 2) {
                 fnt_comprar_tiquete();
             }
-            if (option == 3) {
+            if (option == 4) {
                 menu = false;
             }
         }while(menu);

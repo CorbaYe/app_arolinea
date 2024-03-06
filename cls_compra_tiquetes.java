@@ -20,12 +20,9 @@ public class cls_compra_tiquetes {
         this.cantidad = cantidad;
         this.subtotal = cantidad * obj_tipo_clase.fnt_valor_tipo_clase(tipo_clase);
         this.tipo_pago = tipo_pago;
-        this.iva=0.19f*this.subtotal;
+        this.iva = 0.19f * this.subtotal;
         this.descunto_pago = obj_tipo_clase.fnt_descuento_pago(tipo_pago) * subtotal;
         this.descuento_membresia = descuento_membresia * this.subtotal;
         this.total = subtotal - (iva + descuento_membresia + descunto_pago);
     }
-
-    
-
 }
