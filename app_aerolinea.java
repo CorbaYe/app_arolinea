@@ -88,8 +88,7 @@ public class app_aerolinea {
                 fnt_comprar_tiquete();
             }
             if (option == 3) {
-                String id = JOptionPane.showInputDialog(null,"Ingrese el ID del cliente");
-                reportes.fnt_reporte(id);
+                reportes.fnt_reporte();
             }
             if (option == 4) {
                 menu = false;

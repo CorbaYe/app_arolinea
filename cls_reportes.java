@@ -6,24 +6,27 @@ public class cls_reportes {
     private LinkedList<cls_registro_pasajeros> pasajeros = new LinkedList<>();
     private LinkedList<cls_compra_tiquetes> compra_tiquetes = new LinkedList<>();
 
-    public void fnt_reporte(String id_cliente){
+    public void fnt_reporte(){
         String reporte_cliente = "";
         String reporte_tikets = "";
         int posicion_cliente = 0;
         int posicion_tikets = 0;
         boolean sw_cliente = false;
         boolean sw_tikets = false;
-        for(int i = 0; i < pasajeros.size(); i++){
-            if (pasajeros.get(i).getId().equals(id_cliente)) {
+        String id = JOptionPane.showInputDialog(null,"Ingrese el ID del cliente");
+        for(int i = 0; i <= pasajeros.size(); i++){
+            if (pasajeros.get(i).getId().equals(id)) {
                 posicion_cliente = i;
                 sw_cliente = true;
+                JOptionPane.showMessageDialog(null,"Cliente encontrada");
                 break;
             }
         }
-        for(int i = 0; i < compra_tiquetes.size(); i++){
-            if (compra_tiquetes.get(i).getId_cliente().equals(id_cliente)) {
+        for(int i = 0; i <= compra_tiquetes.size(); i++){
+            if (compra_tiquetes.get(i).getId_cliente().equals(id)) {
                 posicion_tikets = i;
                 sw_tikets = true;
+                JOptionPane.showMessageDialog(null,"Compra encontrada");
                 break;
             }
         }
