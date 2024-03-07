@@ -26,4 +26,28 @@ public class cls_registro_pasajeros {
         return descuento;
     }
 
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getContacto() {
+        return contacto;
+    }
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public String getSexo() {
+        return sexo;
+    }
+
+    public int getMembresia() {
+        return membresia;
+    }
+
+    public cls_membresia getObj_membresia() {
+        return obj_membresia;
+    }
+
 }

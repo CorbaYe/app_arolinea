@@ -4,6 +4,7 @@ import javax.swing.JOptionPane;
 public class app_aerolinea {
     private static LinkedList<cls_registro_pasajeros> pasajeros = new LinkedList<>();
     private static LinkedList<cls_compra_tiquetes> compra_tiquetes = new LinkedList<>();
+    private static cls_reportes reportes = new cls_reportes();
     public static void main(String[] args) {
         fnt_menu(true);
     }
@@ -85,6 +86,10 @@ public class app_aerolinea {
             }
             if (option == 2) {
                 fnt_comprar_tiquete();
+            }
+            if (option == 3) {
+                String id = JOptionPane.showInputDialog(null,"Ingrese el ID del cliente");
+                reportes.fnt_reporte(id);
             }
             if (option == 4) {
                 menu = false;
