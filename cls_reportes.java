@@ -17,7 +17,6 @@ public class cls_reportes extends app_aerolinea{
             }
         }
         for(int i = 0; i < compra_tiquetes.size(); i++){
-            JOptionPane.showMessageDialog(null, compra_tiquetes.get(i).getId_cliente());
             if (compra_tiquetes.get(i).getId_cliente().equals(id)) {
                 posicion_tikets = i;
                 sw_tikets = true;
@@ -83,6 +82,11 @@ public class cls_reportes extends app_aerolinea{
                             "Total: $"  + compra_tiquetes.get(posicion_tikets).getTotal()  + "\n";
 
         }
-        JOptionPane.showMessageDialog(null, "===============REPORTE===============\n"+ reporte_cliente + reporte_tikets + "===============FIN===============");
+        if (sw_cliente) {
+            JOptionPane.showMessageDialog(null, "===============REPORTE===============\n"+ reporte_cliente + reporte_tikets + "===============FIN===============");
+        }else{
+            JOptionPane.showMessageDialog(null, "No existen registros");
+        }
+        
     }
 }
