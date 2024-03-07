@@ -2,8 +2,8 @@ import java.util.LinkedList;
 
 import javax.swing.JOptionPane;
 public class app_aerolinea {
-    private static LinkedList<cls_registro_pasajeros> pasajeros = new LinkedList<>();
-    private static LinkedList<cls_compra_tiquetes> compra_tiquetes = new LinkedList<>();
+    protected static LinkedList<cls_registro_pasajeros> pasajeros = new LinkedList<>();
+    protected static LinkedList<cls_compra_tiquetes> compra_tiquetes = new LinkedList<>();
     private static cls_reportes reportes = new cls_reportes();
     public static void main(String[] args) {
         fnt_menu(true);
@@ -45,7 +45,6 @@ public class app_aerolinea {
     }
 
     private static void fnt_comprar_tiquete(){
-        String id_cliente = "";
         float descuento_membresia = 0;
         boolean sw = false;
         String id = JOptionPane.showInputDialog(null,"Ingrese el ID del cliente");
@@ -57,7 +56,7 @@ public class app_aerolinea {
             }
         }
         if (sw) {
-            int tipo_clase = Integer.valueOf(JOptionPane.showInputDialog(null,"Selecione el tipo de clase\n\n1. Economica: $450,000\n2. Turista: $600,000 \n3.  $900,000 "));
+            int tipo_clase = Integer.valueOf(JOptionPane.showInputDialog(null,"Selecione el tipo de clase\n\n1. Economica: $450,000\n2. Turista: $600,000 \n3. VIP $900,000 "));
             if (tipo_clase == 1) {
                 tipo_clase = 1;
             }
@@ -73,8 +72,10 @@ public class app_aerolinea {
             }
             int cantidad = Integer.valueOf(JOptionPane.showInputDialog(null,"Ingrese la cantidad de Tiketes"));
             int tipo_pago = Integer.valueOf(JOptionPane.showInputDialog(null,"Selecione el tipo de pago\n\n1. Efectivo \n2. Tarjeta de credito \n3. Tarjeta de ahorros \n4. Transferencia"));
-            compra_tiquetes.add(new cls_compra_tiquetes(id_cliente, tipo_clase, cantidad, tipo_pago, descuento_membresia));
+            compra_tiquetes.add(new cls_compra_tiquetes(id, tipo_clase, cantidad, tipo_pago, descuento_membresia));
             JOptionPane.showMessageDialog(null, "Compra registrada éxitosamente");
+        }else{
+            JOptionPane.showMessageDialog(null, "No se encontraron registros del cliente");
         }
     }
 

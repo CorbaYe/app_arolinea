@@ -23,7 +23,7 @@ public class cls_compra_tiquetes {
         this.iva = 0.19f * this.subtotal;
         this.descuento_pago = obj_tipo_clase.fnt_descuento_pago(tipo_pago) * subtotal;
         this.descuento_membresia = descuento_membresia * this.subtotal;
-        this.total = subtotal - (iva + descuento_membresia + descuento_pago);
+        this.total = (subtotal + iva) - (descuento_membresia + descuento_pago);
     }
 
     public String getId_cliente() {
