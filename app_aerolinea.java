@@ -52,7 +52,7 @@ public class app_aerolinea {
                 JOptionPane.showMessageDialog(null, "Cliente registrado con éxito");   
             }
         }else{
-            JOptionPane.showMessageDialog(null, "Registro existente encontrado");
+            JOptionPane.showMessageDialog(null, "Se encontro un registro existente","",JOptionPane.WARNING_MESSAGE);
         }
 
     }
@@ -85,6 +85,19 @@ public class app_aerolinea {
             }
             Integer cantidad = Integer.valueOf(JOptionPane.showInputDialog(null,"Ingrese la cantidad de Tiketes"));
             Integer tipo_pago = Integer.valueOf(JOptionPane.showInputDialog(null,"Selecione el tipo de pago\n\n1. Efectivo \n2. Tarjeta de credito \n3. Tarjeta de ahorros \n4. Transferencia"));
+            if (tipo_pago == 1) {
+                tipo_pago = 1;
+            }
+            else if (tipo_pago == 2 ) {
+                tipo_pago = 2;
+            }
+            else if (tipo_pago == 3) {
+                tipo_pago = 3;
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Tipo de clase no valida, asignando por defecto clase ECONOMICA");
+                tipo_pago = 1;
+            }
             if (!id.equals("") && tipo_clase != null && cantidad != null && tipo_pago != null) {
                 compra_tiquetes.add(new cls_compra_tiquetes(id, tipo_clase, cantidad, tipo_pago, descuento_membresia));
                 JOptionPane.showMessageDialog(null, "Compra registrada éxitosamente");
